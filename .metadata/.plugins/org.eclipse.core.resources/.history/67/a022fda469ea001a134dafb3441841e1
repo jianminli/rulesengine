@@ -1,0 +1,21 @@
+package com.jml.rules.engine;
+
+import com.jml.rules.engine.entity.Application;
+import com.jml.rules.engine.entity.Result;
+
+public class Rule1 extends Rule<Application, Application> {
+	
+	@Override
+	public Application verify(Application input) {
+		if(this.getEnable()) {
+			// if age > 65 or <20 then reject
+			if(input.getAge()>65 || input.getAge()<20) {
+				input.setResult(new Result("rejected", "Failed at age rule"));
+			}else {
+				this.getNext().verify(input);
+			}
+		}
+		return input;
+	}
+
+}

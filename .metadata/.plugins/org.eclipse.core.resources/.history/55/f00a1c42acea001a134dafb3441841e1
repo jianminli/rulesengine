@@ -1,0 +1,20 @@
+package com.jml.rules.engine;
+
+public class RulesHandlerBuilder {
+
+	Rule currentRule;
+	
+	public RulesHandlerBuilder register(Rule rule) {
+		if (null == currentRule) {
+			currentRule = rule;
+		} else {
+			currentRule.setNext(rule);
+		}
+		return this;
+	}
+	
+	public RulesHandler build() {
+		return new RulesHandler(currentRule);
+	}
+	
+}

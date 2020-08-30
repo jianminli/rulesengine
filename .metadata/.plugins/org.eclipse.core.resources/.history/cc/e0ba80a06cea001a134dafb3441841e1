@@ -1,0 +1,20 @@
+package com.jml.rules.engine;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.jml.rules.engine.entity.Application;
+
+public class Handler {
+
+	List<Rule<Application,Application>> ruleList;
+	
+	public Handler() {
+		ruleList = new ArrayList<>();
+		ruleList.add(new AgeRule());
+		ruleList.add(new GenderRule());
+	}
+	
+	 
+	
+}

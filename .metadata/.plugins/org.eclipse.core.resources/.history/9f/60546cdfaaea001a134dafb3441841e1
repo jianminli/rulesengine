@@ -1,0 +1,21 @@
+package com.jml.rules.engine;
+
+public class RulesHandler<I, O> {
+
+	Rule<I, O> currentRule;
+	
+	public RulesHandler(Rule<I,O> rule) {
+		currentRule = rule;
+	}
+	
+	public O verifyRules(I input) {
+		
+		O output = currentRule.verify(input);
+		if(null == currentRule.getNext()) {
+			System.out.println("End of the rule chain");
+			
+		}
+		return output;
+	}
+	
+}

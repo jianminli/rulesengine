@@ -1,0 +1,21 @@
+package com.jml.rules.engine;
+
+public class RulesHandlerBuilder<I,O> {
+
+	Rule<I,O> currentRule;
+	
+	public RulesHandlerBuilder<I, O> registerRule(Rule<I, O> rule) {
+		currentRule = rule;
+		return this;
+	}
+	
+	public RulesHandlerBuilder<I, O> setNext(Rule<I,O> nextRule) {
+		currentRule.setNext(nextRule);
+		return this;
+	}
+	
+	public RulesHandler<I,O> build() {
+		return new RulesHandler(currentRule);
+	}
+	
+}

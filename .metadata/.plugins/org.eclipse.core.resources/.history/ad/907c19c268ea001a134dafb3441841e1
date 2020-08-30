@@ -1,0 +1,5 @@
+package com.jml.rules.engine;
+
+public class Rule1 extends Rule<I, O> {
+
+}

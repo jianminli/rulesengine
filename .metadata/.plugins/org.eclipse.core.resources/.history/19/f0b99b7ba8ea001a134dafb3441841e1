@@ -1,0 +1,20 @@
+package com.jml.rules.engine;
+
+public class RulesHandlerBuilder<I,O> {
+
+	
+	public RulesHandlerBuilder<I, O> registerRule(Rule<I, O> rule) {
+		
+		return this;
+	}
+	
+	public RulesHandlerBuilder<I, O> setNext(Rule<I,O> rule) {
+		
+		return this;
+	}
+	
+	public RulesHandler build() {
+		return new RulesHandler();
+	}
+	
+}

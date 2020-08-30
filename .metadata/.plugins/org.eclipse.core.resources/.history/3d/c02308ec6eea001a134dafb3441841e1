@@ -1,0 +1,24 @@
+package com.jml.rules.engine;
+
+import java.util.Arrays;
+import java.util.List;
+
+import com.jml.rules.engine.entity.Application;
+import com.jml.rules.engine.entity.Gender;
+
+public class Client {
+
+	public static void main(String[] args) {
+		Client client = new Client();
+		List<Application> apps = client.getApplications();
+		System.out.println(apps);
+	}
+	
+	public List<Application> getApplications() {
+		Application app1 = new Application("Amy",22,Gender.FEMALE,null);
+		Application app2 = new Application("Robert",70,Gender.MALE,null);
+		Application app3 = new Application("Andy",36,Gender.NEUTRAL,null);
+		return Arrays.asList(app1,app2,app3);
+	}
+	
+}

@@ -1,0 +1,36 @@
+package com.jml.rules.engine;
+
+public abstract class Rule<I, O> {
+
+	private Boolean enable;
+	private Rule<I,O> next;
+	
+	public Boolean getEnable() {
+		return enable;
+	}
+
+	public void setEnable(Boolean enable) {
+		this.enable = enable;
+	}
+	
+
+	public Rule<I, O> getNext() {
+		return next;
+	}
+
+	public void setNext(Rule<I, O> next) {
+		this.next = next;
+	}
+
+	public abstract O verify(I input);
+	
+	public O verifyNext(I input) {
+		if(null != this.getNext()) {
+			return this.getNext().verify(input);
+		}else {
+			return null;
+		}
+		
+	}
+	
+}

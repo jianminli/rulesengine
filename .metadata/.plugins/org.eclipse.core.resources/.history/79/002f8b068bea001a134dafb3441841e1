@@ -1,0 +1,23 @@
+package com.jml.rules.engine;
+
+import com.jml.rules.engine.entity.Application;
+
+public class RulesHandler {
+
+	Rule<Application, Application> next;
+	
+	public RulesHandler() {
+		
+		Rule<Application, Application> ageRule = new AgeRule(true);
+		Rule<Application, Application> genderRule = new GenderRule(true);
+		ageRule.setNext(genderRule);
+		
+		next = ageRule;
+	}
+
+	
+	public Application verifyRules(Application application) {
+		return next.verify(application);
+	}
+	
+}
